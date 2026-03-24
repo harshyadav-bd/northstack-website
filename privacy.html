@@ -9,24 +9,25 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300853E'/><text y='70' x='15' font-size='60' fill='white' font-family='system-ui' font-weight='bold'>N</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --green: #00853E;
       --green-dark: #006B32;
-      --green-50: #f0faf4;
-      --green-100: #dcf3e6;
-      --black: #0a0a0a;
-      --grey-900: #1a1a1a;
-      --grey-800: #2a2a2a;
-      --grey-600: #555;
-      --grey-400: #999;
-      --grey-200: #e5e5e5;
-      --grey-100: #f5f5f5;
-      --white: #ffffff;
-      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --green-50: #f0f9f4;
+      --green-100: #daf0e4;
+      --black: #0b1411;
+      --grey-900: #1a2420;
+      --grey-800: #2a3430;
+      --grey-600: #4d5c56;
+      --grey-400: #8a9690;
+      --grey-200: #dde3e0;
+      --grey-100: #f2f5f3;
+      --white: #fafcfb;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --max-width: 780px;
     }
 
@@ -68,6 +69,7 @@
       gap: 10px;
       text-decoration: none;
       color: var(--grey-900);
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 18px;
       letter-spacing: -0.3px;
@@ -82,7 +84,7 @@
       align-items: center;
       justify-content: center;
       color: white;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 16px;
     }
 
@@ -126,8 +128,9 @@
     }
 
     .legal-header h1 {
+      font-family: var(--font-display);
       font-size: 36px;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: -1px;
       color: var(--black);
       margin-bottom: 8px;
@@ -148,6 +151,7 @@
     }
 
     .legal-section h2 {
+      font-family: var(--font-display);
       font-size: 18px;
       font-weight: 700;
       color: var(--grey-900);
@@ -158,9 +162,11 @@
     }
 
     .section-num {
-      font-size: 13px;
+      font-family: var(--font-display);
+      font-size: 12px;
       font-weight: 700;
       color: var(--green);
+      letter-spacing: 1px;
       min-width: 24px;
     }
 

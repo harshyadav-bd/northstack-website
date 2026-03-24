@@ -9,7 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300853E'/><text y='70' x='15' font-size='60' fill='white' font-family='system-ui' font-weight='bold'>N</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -17,23 +17,24 @@
       --green: #00853E;
       --green-light: #00a34b;
       --green-dark: #006B32;
-      --green-50: #f0faf4;
-      --green-100: #dcf3e6;
-      --black: #0a0a0a;
-      --grey-900: #1a1a1a;
-      --grey-800: #2a2a2a;
-      --grey-600: #555;
-      --grey-400: #999;
-      --grey-200: #e5e5e5;
-      --grey-100: #f5f5f5;
-      --white: #ffffff;
-      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --green-50: #f0f9f4;
+      --green-100: #daf0e4;
+      --black: #0b1411;
+      --grey-900: #1a2420;
+      --grey-800: #2a3430;
+      --grey-600: #4d5c56;
+      --grey-400: #8a9690;
+      --grey-200: #dde3e0;
+      --grey-100: #f2f5f3;
+      --white: #fafcfb;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --mono: 'JetBrains Mono', monospace;
       --max-width: 1200px;
-      --radius: 16px;
-      --radius-sm: 10px;
-      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
-      --shadow-lg: 0 4px 6px rgba(0,0,0,0.04), 0 10px 40px rgba(0,0,0,0.08);
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow: 0 1px 3px rgba(11,20,17,0.05), 0 4px 14px rgba(11,20,17,0.04);
+      --shadow-lg: 0 4px 8px rgba(11,20,17,0.04), 0 12px 40px rgba(11,20,17,0.08);
     }
 
     html { scroll-behavior: smooth; }
@@ -78,6 +79,7 @@
       gap: 10px;
       text-decoration: none;
       color: var(--grey-900);
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 18px;
       letter-spacing: -0.3px;
@@ -165,10 +167,11 @@
     }
 
     .hero h1 {
+      font-family: var(--font-display);
       font-size: clamp(40px, 6vw, 72px);
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1.05;
-      letter-spacing: -2px;
+      letter-spacing: -2.5px;
       color: var(--black);
       max-width: 800px;
       margin-bottom: 24px;
@@ -237,19 +240,20 @@
     }
 
     .section-label {
-      font-family: var(--mono);
-      font-size: 12px;
+      font-family: var(--font-display);
+      font-size: 13px;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       color: var(--green);
       margin-bottom: 16px;
     }
 
     .section-title {
+      font-family: var(--font-display);
       font-size: clamp(30px, 4vw, 44px);
-      font-weight: 800;
-      letter-spacing: -1.2px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
       line-height: 1.15;
       color: var(--black);
       margin-bottom: 16px;
@@ -290,12 +294,22 @@
     .value-card {
       background: var(--white);
       padding: 24px 28px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,0.04);
+      border-left: 3px solid var(--green);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .value-num {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--green);
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: block;
     }
 
     .value-card h4 {
+      font-family: var(--font-display);
       font-size: 15px;
       font-weight: 700;
       margin-bottom: 6px;
@@ -308,11 +322,7 @@
       line-height: 1.6;
     }
 
-    .value-icon {
-      font-size: 24px;
-      margin-bottom: 12px;
-      display: block;
-    }
+    /* value-icon replaced by value-num */
 
     /* --- GOPULSE PRODUCT --- */
     .product { background: var(--white); }
@@ -367,18 +377,20 @@
     }
 
     .product-logo span {
+      font-family: var(--font-display);
       font-size: 28px;
-      font-weight: 800;
+      font-weight: 700;
       color: white;
       letter-spacing: -0.5px;
     }
 
     .product-tagline {
+      font-family: var(--font-display);
       font-size: clamp(24px, 3vw, 36px);
       font-weight: 700;
       color: white;
-      line-height: 1.25;
-      letter-spacing: -0.8px;
+      line-height: 1.2;
+      letter-spacing: -1px;
       margin-bottom: 20px;
     }
 
@@ -499,7 +511,7 @@
     .carousel-track {
       display: flex;
       width: 600%;
-      transition: transform 0.4s ease;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .carousel-track img {
@@ -536,21 +548,6 @@
     .carousel-dots {
       display: flex;
       gap: 8px;
-    }
-
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.3);
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: background 0.2s;
-    }
-
-    .carousel-dot.active {
-      background: white;
     }
 
     .phone-frame {
@@ -692,29 +689,28 @@
       background: var(--white);
       padding: 32px;
       border-radius: var(--radius);
-      border: 1px solid rgba(0,0,0,0.04);
-      box-shadow: var(--shadow);
-      transition: all 0.25s ease;
+      border: 1px solid var(--grey-200);
     }
 
-    .feature-card:hover {
-      transform: translateY(-3px);
+    .features-grid.visible .feature-card:hover {
+      border-color: var(--green-100);
       box-shadow: var(--shadow-lg);
     }
 
     .feature-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--green-50);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 40px;
+      height: 40px;
       margin-bottom: 20px;
-      font-size: 22px;
+      color: var(--green);
+    }
+
+    .feature-icon svg {
+      width: 100%;
+      height: 100%;
     }
 
     .feature-card h3 {
+      font-family: var(--font-display);
       font-size: 17px;
       font-weight: 700;
       margin-bottom: 8px;
@@ -829,7 +825,8 @@
     }
 
     .footer-col h4 {
-      font-size: 13px;
+      font-family: var(--font-display);
+      font-size: 12px;
       font-weight: 700;
       color: var(--white);
       text-transform: uppercase;
@@ -873,6 +870,192 @@
     .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* --- HERO ENTRANCE --- */
+    .hero-badge,
+    .hero h1,
+    .hero-sub,
+    .hero-cta {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .hero-badge.entered,
+    .hero h1.entered,
+    .hero-sub.entered,
+    .hero-cta.entered {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* --- BUTTON PRESS --- */
+    .btn:active {
+      transform: translateY(1px) !important;
+      box-shadow: none !important;
+      transition: transform 0.06s, box-shadow 0.06s !important;
+    }
+
+    .store-badge:active {
+      transform: translateY(1px) scale(0.98) !important;
+      transition: transform 0.06s !important;
+    }
+
+    /* --- NAV SCROLL SHRINK --- */
+    nav.scrolled .nav-inner {
+      height: 52px;
+    }
+
+    nav.scrolled {
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    }
+
+    /* --- CAROUSEL DOT MORPH --- */
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .carousel-dot.active {
+      background: white;
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* --- FEATURE CARD STAGGER --- */
+    .feature-card {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .features-grid.visible .feature-card {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.25s ease;
+    }
+
+    .features-grid.visible .feature-card:nth-child(1) { transition-delay: 0ms; }
+    .features-grid.visible .feature-card:nth-child(2) { transition-delay: 70ms; }
+    .features-grid.visible .feature-card:nth-child(3) { transition-delay: 140ms; }
+    .features-grid.visible .feature-card:nth-child(4) { transition-delay: 210ms; }
+    .features-grid.visible .feature-card:nth-child(5) { transition-delay: 280ms; }
+    .features-grid.visible .feature-card:nth-child(6) { transition-delay: 350ms; }
+
+    /* --- FEATURE ICON HOVER --- */
+    .feature-card .feature-icon svg {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .feature-card:hover .feature-icon svg {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    /* --- COPY TOAST --- */
+    .copy-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--grey-900);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: var(--font);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 200;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* --- EMAIL LINK CURSOR HINT --- */
+    .contact-detail a[href^="mailto"] {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .contact-detail a[href^="mailto"]::after {
+      content: 'click to copy';
+      position: absolute;
+      right: -90px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      color: var(--grey-400);
+      opacity: 0;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .contact-detail a[href^="mailto"]:hover::after {
+      opacity: 1;
+    }
+
+    /* --- VALUE CARD HOVER --- */
+    .value-card {
+      transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+    }
+
+    .value-card:hover {
+      border-color: var(--green-light);
+    }
+
+    /* --- REDUCED MOTION --- */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-badge,
+      .hero h1,
+      .hero-sub,
+      .hero-cta {
+        opacity: 1;
+        transform: none;
+      }
+
+      .hero-badge.entered,
+      .hero h1.entered,
+      .hero-sub.entered,
+      .hero-cta.entered {
+        transition: none;
+      }
+
+      .fade-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .feature-card {
+        opacity: 1;
+        transform: none;
+      }
+
+      .features-grid.visible .feature-card {
+        transition: none;
+      }
+
+      .value-card,
+      .feature-card,
+      .btn,
+      .store-badge,
+      .carousel-dot {
+        transition: none !important;
+      }
     }
 
     /* --- RESPONSIVE --- */
@@ -921,6 +1104,10 @@
 
       section { padding: 64px 20px; }
 
+      .contact-detail a[href^="mailto"]::after {
+        display: none;
+      }
+
       .hero h1 { letter-spacing: -1px; }
 
       .features-grid {
@@ -941,7 +1128,7 @@
         top: 64px;
         left: 0;
         right: 0;
-        background: rgba(255,255,255,0.97);
+        background: rgba(250, 252, 251, 0.97);
         backdrop-filter: blur(20px);
         padding: 20px 24px;
         gap: 16px;
@@ -1005,40 +1192,41 @@
   <section class="about" id="about">
     <div class="section-inner">
       <div class="section-label">About</div>
-      <h2 class="section-title">Small studio.<br>Real problems.</h2>
+      <h2 class="section-title">One person.<br>Real problems.</h2>
       <div class="about-grid fade-up">
         <div class="about-text">
           <p>
-            NorthStack Labs is a small software studio fully run and operated by Harsh Yadav out of
-            Ontario, Canada. It started because we kept running into apps that looked polished on the
-            surface but fell apart the moment you actually needed them.
+            Hey, I'm Harsh. A software engineer based in Ontario, Canada who cares deeply about
+            building things that actually work. Well-designed, scalable software that solves real
+            problems for real people. That's what gets me out of bed.
           </p>
           <p>
-            We like being small. Every project gets full attention, and nothing ships until we're
-            happy with it. We're not trying to be the next big agency. We just want to build software
-            that people actually use.
+            NorthStack started with a simple belief: the best software comes from people who feel the
+            problem themselves. I wanted to build things I'd use with my own hands, not just ship
+            features into a void. GOPulse, my first product, came from exactly that. I ride the GO Train
+            every weekday and most weekends. The frustration was personal, so the solution had to be too.
           </p>
           <p>
-            Our first product, GOPulse, came from a daily frustration: standing on a GO Transit
-            platform with no idea if the train was on time. Turns out a lot of other commuters had
-            the same problem.
+            I care about craft. Good software isn't just functional, it's thoughtful. It respects
+            your time, works when you need it, and stays out of your way when you don't. Whether it's
+            a transit app or whatever comes next, that's the standard.
           </p>
         </div>
         <div class="about-values">
           <div class="value-card">
-            <span class="value-icon">&#9881;</span>
-            <h4>Build What Matters</h4>
-            <p>We don't chase trends. We find real problems and build clean, focused solutions.</p>
+            <span class="value-num">01</span>
+            <h4>Use What You Build</h4>
+            <p>I don't ship things I wouldn't use myself. If I'm not reaching for it daily, it's not ready.</p>
           </div>
           <div class="value-card">
-            <span class="value-icon">&#9734;</span>
-            <h4>Keep It Simple</h4>
-            <p>No feature creep. Every screen, every interaction should earn its place.</p>
+            <span class="value-num">02</span>
+            <h4>Design Is Not Optional</h4>
+            <p>Clean architecture, thoughtful interfaces, real attention to detail. Software should feel as good as it works.</p>
           </div>
           <div class="value-card">
-            <span class="value-icon">&#128230;</span>
-            <h4>Ship &amp; Iterate</h4>
-            <p>Get it into people's hands, listen to feedback, make it better. Repeat.</p>
+            <span class="value-num">03</span>
+            <h4>Solve It, Don't Sell It</h4>
+            <p>No growth hacks, no dark patterns. Find a real problem, understand the people who have it, and build something that actually helps.</p>
           </div>
         </div>
       </div>
@@ -1093,7 +1281,7 @@
               <img src="images/IMG_2393.png" alt="GOPulse - Screenshot 3">
               <img src="images/IMG_2394.png" alt="GOPulse - Screenshot 4">
               <img src="images/IMG_2396.png" alt="GOPulse - Screenshot 5">
-              <img src="images/Screenshot 2026-03-02 at 7.57.30 PM.png" alt="GOPulse - Screenshot 6">
+              <img src="images/IMG_2397.png" alt="GOPulse - Screenshot 6">
             </div>
           </div>
           </div>
@@ -1123,7 +1311,7 @@
         The features we wished we had as daily GO Transit riders.
       </p>
 
-      <div class="features-grid fade-up">
+      <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00853E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -1247,6 +1435,9 @@
     </div>
   </footer>
 
+  <!-- Copy toast -->
+  <div class="copy-toast" id="copyToast">Copied to clipboard</div>
+
   <script>
     // Scroll-triggered fade-in animations
     const observer = new IntersectionObserver((entries) => {
@@ -1259,12 +1450,65 @@
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+    // Feature card stagger (separate observer)
+    const featuresGrid = document.querySelector('.features-grid');
+    if (featuresGrid) {
+      const featureObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      featureObserver.observe(featuresGrid);
+    }
+
+    // Hero staggered entrance
+    (function() {
+      const heroEls = document.querySelectorAll('.hero-badge, .hero h1, .hero-sub, .hero-cta');
+      const delays = [100, 200, 340, 480];
+      heroEls.forEach((el, i) => {
+        setTimeout(() => el.classList.add('entered'), delays[i]);
+      });
+    })();
+
+    // Nav shrink on scroll
+    (function() {
+      const nav = document.getElementById('nav');
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
     // Close mobile nav on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('nav').classList.remove('open');
       });
     });
+
+    // Copy email to clipboard
+    (function() {
+      const emailLink = document.querySelector('.contact-detail a[href^="mailto"]');
+      if (emailLink) {
+        emailLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          const email = emailLink.textContent.trim();
+          navigator.clipboard.writeText(email).then(() => {
+            const toast = document.getElementById('copyToast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+          });
+        });
+      }
+    })();
 
     // Screenshot carousel
     (function() {
@@ -1300,6 +1544,16 @@
       }
       resetAuto();
     })();
+
+    // Console Easter egg
+    console.log(
+      '%cNorthStack Labs',
+      'color: #00853E; font-size: 20px; font-weight: bold; font-family: system-ui;'
+    );
+    console.log(
+      '%cBuilt with care in Ontario, Canada.\nCurious how things work? We like that about you.',
+      'color: #555; font-size: 13px; font-family: system-ui;'
+    );
   </script>
 
 </body>
