@@ -454,12 +454,78 @@
       line-height: 1.2;
     }
 
-    /* Phone mockup */
-    .phone-mockup {
+    /* Screenshot carousel */
+    .screenshot-carousel {
       position: relative;
       z-index: 1;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .carousel-viewport {
+      width: 280px;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 500%;
+      transition: transform 0.4s ease;
+    }
+
+    .carousel-track img {
+      width: 280px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .carousel-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.15);
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
       justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: white;
     }
 
     .phone-frame {
@@ -875,11 +941,11 @@
 
       .store-badges { justify-content: center; }
 
-      .phone-mockup { margin-top: 20px; }
+      .screenshot-carousel { margin-top: 20px; }
 
-      .phone-frame {
+      .carousel-viewport,
+      .carousel-track img {
         width: 240px;
-        transform: none;
       }
 
       .features-grid {
@@ -1035,7 +1101,7 @@
         <div class="product-info">
           <div class="product-logo">
             <div class="product-logo-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 3 5 6v10c0 1.5 1 3 3 3l-1 1v1h2l2-2h2l2 2h2v-1l-1-1c2 0 3-1.5 3-3V6c0-3-3-4-7-4zM7.5 17a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm9 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM19 12H5V7h14v5z"/></svg>
+              <img src="images/app-icon - go pulse.png" alt="GOPulse icon" style="width: 100%; height: 100%; border-radius: 12px; object-fit: cover;">
             </div>
             <span>GOPulse</span>
           </div>
@@ -1051,67 +1117,38 @@
           </p>
 
           <div class="store-badges">
-            <a href="#" class="store-badge" aria-label="Download on the App Store">
-              <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span class="store-badge" style="cursor: default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               <div class="store-badge-text">
-                <span class="store-badge-small">Download on the</span>
-                <span class="store-badge-big">App Store</span>
+                <span class="store-badge-small">Available soon on</span>
+                <span class="store-badge-big">App Store & Google Play</span>
               </div>
-            </a>
-            <a href="#" class="store-badge" aria-label="Get it on Google Play">
-              <svg viewBox="0 0 24 24"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm.91-.91L19.59 12l-1.87-2.21-2.27 2.27 2.27 2.15zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
-              <div class="store-badge-text">
-                <span class="store-badge-small">Get it on</span>
-                <span class="store-badge-big">Google Play</span>
-              </div>
-            </a>
+            </span>
           </div>
         </div>
 
-        <div class="phone-mockup">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <div class="phone-notch"></div>
-              <div class="phone-content">
-                <div class="phone-header">
-                  <div>
-                    <div class="phone-greeting">Good morning</div>
-                    <div class="phone-title">Your Trains</div>
-                  </div>
-                  <div class="phone-avatar">H</div>
-                </div>
-
-                <div class="phone-section-title">Next Departures</div>
-
-                <div class="phone-card">
-                  <div class="phone-card-row">
-                    <div class="phone-station">Oakville GO</div>
-                    <span class="phone-line">LW</span>
-                  </div>
-                  <div class="phone-time">8:14 AM</div>
-                  <div class="phone-status">On Time</div>
-                  <div class="phone-dest">to Union Station</div>
-                </div>
-
-                <div class="phone-card">
-                  <div class="phone-card-row">
-                    <div class="phone-station">Union Station</div>
-                    <span class="phone-line le">LE</span>
-                  </div>
-                  <div class="phone-time">5:43 PM</div>
-                  <div class="phone-status delayed">2 min late</div>
-                  <div class="phone-dest">to Oshawa GO</div>
-                </div>
-
-                <div style="margin-top: 16px;">
-                  <div class="phone-section-title">Active Alerts</div>
-                  <div class="phone-card" style="border-left: 3px solid #FF9500;">
-                    <div class="phone-station" style="font-size: 11px;">Lakeshore West</div>
-                    <div style="font-size: 10px; color: var(--grey-600); margin-top: 4px;">15 min delays due to signal issues near Burlington GO.</div>
-                  </div>
-                </div>
-              </div>
+        <div class="screenshot-carousel" id="carousel">
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carouselTrack">
+              <img src="images/IMG_2355.PNG" alt="GOPulse - Screenshot 1">
+              <img src="images/IMG_2356.PNG" alt="GOPulse - Screenshot 2">
+              <img src="images/IMG_2393.png" alt="GOPulse - Screenshot 3">
+              <img src="images/IMG_2394.png" alt="GOPulse - Screenshot 4">
+              <img src="images/IMG_2396.png" alt="GOPulse - Screenshot 5">
+              <img src="images/Screenshot 2026-03-02 at 7.57.30 PM.png" alt="GOPulse - Screenshot 6">
             </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="carouselPrev" aria-label="Previous screenshot">&lsaquo;</button>
+            <div class="carousel-dots" id="carouselDots">
+              <button class="carousel-dot active" aria-label="Screenshot 1"></button>
+              <button class="carousel-dot" aria-label="Screenshot 2"></button>
+              <button class="carousel-dot" aria-label="Screenshot 3"></button>
+              <button class="carousel-dot" aria-label="Screenshot 4"></button>
+              <button class="carousel-dot" aria-label="Screenshot 5"></button>
+              <button class="carousel-dot" aria-label="Screenshot 6"></button>
+            </div>
+            <button class="carousel-btn" id="carouselNext" aria-label="Next screenshot">&rsaquo;</button>
           </div>
         </div>
       </div>
@@ -1300,6 +1337,41 @@
         document.getElementById('nav').classList.remove('open');
       });
     });
+
+    // Screenshot carousel
+    (function() {
+      const track = document.getElementById('carouselTrack');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const prevBtn = document.getElementById('carouselPrev');
+      const nextBtn = document.getElementById('carouselNext');
+      const total = dots.length;
+      let current = 0;
+      let autoTimer;
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100 / total) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+      nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetAuto(); }));
+
+      // Touch/swipe support
+      let startX = 0;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { goTo(current + (diff > 0 ? 1 : -1)); resetAuto(); }
+      });
+
+      function resetAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => goTo(current + 1), 4000);
+      }
+      resetAuto();
+    })();
   </script>
 
 </body>
