@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NorthStack — Software Studio in Ontario, Canada</title>
-  <meta name="description" content="NorthStack is a small software studio based in Ontario, Canada. We build thoughtful apps that solve real, everyday problems — starting with GOPulse for GO Transit riders.">
+  <title>NorthStack Labs - Software Studio in Ontario, Canada</title>
+  <meta name="description" content="NorthStack Labs is a small software studio in Ontario, Canada, run by Harsh Yadav. We build practical apps for everyday problems, starting with GOPulse for GO Transit riders.">
   <meta name="theme-color" content="#00853E">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300853E'/><text y='70' x='15' font-size='60' fill='white' font-family='system-ui' font-weight='bold'>N</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -155,26 +155,13 @@
       align-items: center;
       gap: 8px;
       padding: 6px 14px;
-      background: var(--green-50);
-      border: 1px solid var(--green-100);
+      background: #fef2f1;
+      border: 1px solid #fdd9db;
       border-radius: 100px;
       font-size: 13px;
       font-weight: 600;
-      color: var(--green);
+      color: #EB2D37;
       margin-bottom: 28px;
-    }
-
-    .hero-badge .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
     }
 
     .hero h1 {
@@ -464,21 +451,59 @@
       gap: 16px;
     }
 
-    .carousel-viewport {
+    .carousel-phone {
       width: 280px;
-      border-radius: 24px;
+      background: #1a1a1a;
+      border-radius: 44px;
+      padding: 14px;
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.3),
+        0 0 0 1px rgba(255,255,255,0.1),
+        inset 0 0 0 1px rgba(255,255,255,0.05);
+      position: relative;
+    }
+
+    .carousel-phone::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 28px;
+      background: #1a1a1a;
+      border-radius: 0 0 18px 18px;
+      z-index: 2;
+    }
+
+    .carousel-phone::after {
+      content: '';
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px;
+      z-index: 2;
+    }
+
+    .carousel-viewport {
+      width: 100%;
+      border-radius: 32px;
       overflow: hidden;
       position: relative;
     }
 
     .carousel-track {
       display: flex;
-      width: 500%;
+      width: 600%;
       transition: transform 0.4s ease;
     }
 
     .carousel-track img {
-      width: 280px;
+      width: calc(100% / 6);
       flex-shrink: 0;
       display: block;
     }
@@ -708,11 +733,7 @@
     }
 
     .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
       margin-top: 48px;
-      align-items: start;
     }
 
     .contact-info p {
@@ -770,75 +791,6 @@
       margin-top: 2px;
     }
 
-    .contact-form {
-      background: var(--grey-100);
-      border-radius: var(--radius);
-      padding: 40px;
-    }
-
-    .contact-form h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .contact-form .form-desc {
-      font-size: 14px;
-      color: var(--grey-600);
-      margin-bottom: 28px;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--grey-800);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid var(--grey-200);
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      font-family: var(--font);
-      color: var(--grey-900);
-      background: var(--white);
-      transition: border-color 0.2s;
-      outline: none;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 3px var(--green-100);
-    }
-
-    .form-group textarea { resize: vertical; min-height: 100px; }
-
-    .form-submit {
-      width: 100%;
-      padding: 14px;
-      background: var(--green);
-      color: white;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-size: 15px;
-      font-weight: 600;
-      font-family: var(--font);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .form-submit:hover {
-      background: var(--green-dark);
-    }
 
     /* --- FOOTER --- */
     footer {
@@ -925,8 +877,7 @@
 
     /* --- RESPONSIVE --- */
     @media (max-width: 900px) {
-      .about-grid,
-      .contact-grid {
+      .about-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
@@ -943,9 +894,16 @@
 
       .screenshot-carousel { margin-top: 20px; }
 
-      .carousel-viewport,
-      .carousel-track img {
+      .carousel-phone {
         width: 240px;
+        border-radius: 38px;
+        padding: 12px;
+      }
+
+      .carousel-phone::before {
+        width: 84px;
+        height: 24px;
+        top: 12px;
       }
 
       .features-grid {
@@ -1001,7 +959,6 @@
         text-align: center;
       }
 
-      .contact-form { padding: 28px; }
     }
   </style>
 </head>
@@ -1028,13 +985,12 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-badge">
-      <span class="dot"></span>
-      Based in Ontario, Canada
+      &#127464;&#127462; Built in Ontario, Canada
     </div>
     <h1>We build software<br>that <span class="green">actually helps</span>.</h1>
     <p class="hero-sub">
-      NorthStack is a small software studio in Ontario. We make thoughtful apps
-      that solve real problems &mdash; no fluff, no bloat, just tools you'll actually use.
+      NorthStack Labs is a small software studio in Ontario, fully run by Harsh Yadav.
+      We build apps that solve real problems. No fluff, no bloat, just tools you'll actually use.
     </p>
     <div class="hero-cta">
       <a href="#gopulse" class="btn btn-primary">
@@ -1048,23 +1004,24 @@
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="section-inner">
-      <div class="section-label">About Us</div>
-      <h2 class="section-title">Small team.<br>Real problems.</h2>
+      <div class="section-label">About</div>
+      <h2 class="section-title">Small studio.<br>Real problems.</h2>
       <div class="about-grid fade-up">
         <div class="about-text">
           <p>
-            NorthStack started because we kept running into the same thing &mdash; apps that looked
-            pretty but didn't actually work well for the people using them. We figured we could do better.
+            NorthStack Labs is a small software studio fully run and operated by Harsh Yadav out of
+            Ontario, Canada. It started because we kept running into apps that looked polished on the
+            surface but fell apart the moment you actually needed them.
           </p>
           <p>
-            We're a small operation based in Ontario, Canada, and we like it that way. It means every
-            project gets our full attention. We're not trying to be the next big agency. We just want
-            to build software that people genuinely find useful.
+            We like being small. Every project gets full attention, and nothing ships until we're
+            happy with it. We're not trying to be the next big agency. We just want to build software
+            that people actually use.
           </p>
           <p>
-            Our first product, GOPulse, came out of a daily frustration &mdash; standing on a GO Transit
-            platform wondering if the train was on time or if we'd be stuck waiting. Turns out a lot
-            of other commuters felt the same way.
+            Our first product, GOPulse, came from a daily frustration: standing on a GO Transit
+            platform with no idea if the train was on time. Turns out a lot of other commuters had
+            the same problem.
           </p>
         </div>
         <div class="about-values">
@@ -1091,7 +1048,7 @@
   <!-- GOPULSE PRODUCT -->
   <section class="product" id="gopulse">
     <div class="section-inner">
-      <div class="section-label">Our Product</div>
+      <div class="section-label">Product</div>
       <h2 class="section-title">Meet GOPulse</h2>
       <p class="section-desc">
         Real-time train tracking, smart reminders, and service alerts for GO Transit riders across Ontario.
@@ -1111,8 +1068,8 @@
           </div>
 
           <p class="product-desc">
-            Built by GO commuters, for GO commuters. Track your train in real time, plan
-            journeys with transfers, and get notified before your train leaves &mdash; so
+            Built by a GO commuter, for GO commuters. Track your train in real time, plan
+            journeys with transfers, and get notified before your train leaves so
             you never have to wonder "is it on time?" again.
           </p>
 
@@ -1128,6 +1085,7 @@
         </div>
 
         <div class="screenshot-carousel" id="carousel">
+          <div class="carousel-phone">
           <div class="carousel-viewport">
             <div class="carousel-track" id="carouselTrack">
               <img src="images/IMG_2355.PNG" alt="GOPulse - Screenshot 1">
@@ -1137,6 +1095,7 @@
               <img src="images/IMG_2396.png" alt="GOPulse - Screenshot 5">
               <img src="images/Screenshot 2026-03-02 at 7.57.30 PM.png" alt="GOPulse - Screenshot 6">
             </div>
+          </div>
           </div>
           <div class="carousel-controls">
             <button class="carousel-btn" id="carouselPrev" aria-label="Previous screenshot">&lsaquo;</button>
@@ -1159,9 +1118,9 @@
   <section class="features" id="features">
     <div class="section-inner">
       <div class="section-label">GOPulse Features</div>
-      <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
+      <h2 class="section-title">Built for the<br>daily commute.</h2>
       <p class="section-desc">
-        We built the features we wished we had as daily GO Transit riders.
+        The features we wished we had as daily GO Transit riders.
       </p>
 
       <div class="features-grid fade-up">
@@ -1186,7 +1145,7 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00853E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
           </div>
           <h3>Departure Reminders</h3>
-          <p>Tell us when you need to arrive, and we'll nudge you when it's time to head to the station. Never miss your train again.</p>
+          <p>Set your arrival time and get notified when it's time to head to the station. No more missed trains.</p>
         </div>
 
         <div class="feature-card">
@@ -1194,7 +1153,7 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00853E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           </div>
           <h3>Service Alerts</h3>
-          <p>Delays, cancellations, platform changes &mdash; know about disruptions before you're standing on the platform.</p>
+          <p>Delays, cancellations, platform changes. Know about disruptions before you leave the house.</p>
         </div>
 
         <div class="feature-card">
@@ -1220,25 +1179,18 @@
   <section class="contact" id="contact">
     <div class="section-inner">
       <div class="section-label">Contact</div>
-      <h2 class="section-title">Let's talk.</h2>
+      <h2 class="section-title">Get in touch.</h2>
       <p class="section-desc">
-        Have a question, an idea, or just want to say hi? We'd love to hear from you.
+        Got a question or feedback? Send us an email.
       </p>
 
       <div class="contact-grid fade-up">
-        <div class="contact-info">
-          <p>
-            Whether you're a GOPulse user with feedback, a business with a project idea,
-            or just someone who thinks we'd be good to work with &mdash; reach out. We're
-            always happy to chat.
-          </p>
-
           <div class="contact-item">
             <div class="contact-icon">
               <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <div class="contact-detail">
-              <a href="mailto:hello@northstack.ca">hello@northstack.ca</a>
+              <a href="mailto:gopulse@northstacklabs.ca">gopulse@northstacklabs.ca</a>
               <small>We usually reply within a day</small>
             </div>
           </div>
@@ -1252,29 +1204,6 @@
               <small>Working remotely across the province</small>
             </div>
           </div>
-        </div>
-
-        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-          <h3>Send us a message</h3>
-          <p class="form-desc">We'll get back to you as soon as we can.</p>
-
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
-          </div>
-
-          <button type="submit" class="form-submit">Send Message</button>
-        </form>
       </div>
     </div>
   </section>
@@ -1288,15 +1217,14 @@
             NorthStack Labs
           </a>
           <p>
-            A small software studio in Ontario, Canada, building thoughtful tools for everyday problems.
+            A small software studio in Ontario, Canada, run by Harsh Yadav.
           </p>
         </div>
 
         <div class="footer-col">
           <h4>Product</h4>
           <a href="#gopulse">GOPulse</a>
-          <a href="#features">Features</a>
-          <a href="/support.html">Support</a>
+          <a href="/support.html">GOPulse Support</a>
         </div>
 
         <div class="footer-col">
@@ -1313,8 +1241,8 @@
       </div>
 
       <div class="footer-bottom">
-        <span>&copy; 2025 NorthStack. All rights reserved.</span>
-        <span>Built with care in Ontario, Canada.</span>
+        <span>&copy; 2026 NorthStack Labs. All rights reserved.</span>
+        <span>Made in Ontario, Canada &#127464;&#127462;</span>
       </div>
     </div>
   </footer>
