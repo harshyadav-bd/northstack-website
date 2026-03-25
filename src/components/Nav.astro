@@ -1,0 +1,102 @@
+---
+interface Props {
+  variant: 'homepage' | 'subpage';
+}
+
+const { variant } = Astro.props;
+---
+
+{variant === 'homepage' ? (
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        NorthStack Labs
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#gopulse">GOPulse</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="#contact" class="nav-contact">Get in Touch</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+) : (
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        NorthStack Labs
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/support">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+)}
+
+<style>
+  .nav-contact {
+    background: var(--green);
+    color: var(--white) !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-contact:hover { background: var(--green-dark) !important; }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--white);
+    margin: 4px 0;
+    transition: all 0.3s;
+    border-radius: 1px;
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+
+    :global(nav.open) .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(26, 36, 32, 0.97);
+      backdrop-filter: blur(20px);
+      padding: 20px 24px;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('mobileToggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      toggle.closest('nav')?.classList.toggle('open');
+    });
+  }
+</script>

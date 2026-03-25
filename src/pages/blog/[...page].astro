@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = (await getCollection('blog'))
+    .filter(post => !post.data.draft)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+  return paginate(posts, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<BaseLayout
+  title={page.currentPage === 1 ? "Blog — NorthStack Labs" : `Blog — Page ${page.currentPage} — NorthStack Labs`}
+  description="Updates from NorthStack Labs on GOPulse, transit tech, and software development."
+  navVariant="subpage"
+  footerVariant="subpage"
+>
+  <main class="blog-listing">
+    <div class="blog-listing-header">
+      <a href="/" class="back-link">&larr; Back to Home</a>
+      <h1 style="margin-top: 16px;">Blog</h1>
+      <p>Updates from NorthStack Labs on what we're building.</p>
+    </div>
+
+    {page.data.length > 0 ? (
+      <ul class="post-list">
+        {page.data.map(post => (
+          <li class="post-item">
+            <a href={`/blog/${post.id}`}>
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              <h2>{post.data.title}</h2>
+              <p>{post.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="empty-state">
+        <p>No posts yet. Check back soon.</p>
+      </div>
+    )}
+
+    {page.lastPage > 1 && (
+      <nav class="pagination" aria-label="Blog pagination">
+        {page.url.prev ? (
+          <a href={page.url.prev} class="pagination-link pagination-prev">&larr; Newer</a>
+        ) : (
+          <span class="pagination-link pagination-prev disabled">&larr; Newer</span>
+        )}
+        <span class="pagination-current">Page {page.currentPage} of {page.lastPage}</span>
+        {page.url.next ? (
+          <a href={page.url.next} class="pagination-link pagination-next">Older &rarr;</a>
+        ) : (
+          <span class="pagination-link pagination-next disabled">Older &rarr;</span>
+        )}
+      </nav>
+    )}
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-listing {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 120px 24px 80px;
+  }
+
+  .blog-listing-header {
+    margin-bottom: 48px;
+  }
+
+  .blog-listing-header h1 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--black);
+    margin-bottom: 12px;
+  }
+
+  .blog-listing-header p {
+    font-size: 17px;
+    color: var(--grey-600);
+    line-height: 1.7;
+  }
+
+  .post-list {
+    list-style: none;
+  }
+
+  .post-item {
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .post-item:first-child {
+    border-top: 1px solid var(--grey-200);
+  }
+
+  .post-item a {
+    display: block;
+    padding: 28px 0;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .post-item a:hover h2 {
+    color: var(--green);
+  }
+
+  .post-item time {
+    font-size: 13px;
+    color: var(--grey-400);
+    font-weight: 500;
+  }
+
+  .post-item h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--grey-900);
+    letter-spacing: -0.5px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+
+  .post-item p {
+    font-size: 15px;
+    color: var(--grey-600);
+    line-height: 1.6;
+  }
+
+  .empty-state {
+    padding: 48px 0;
+    text-align: center;
+  }
+
+  .empty-state p {
+    font-size: 16px;
+    color: var(--grey-400);
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--grey-200);
+  }
+
+  .pagination-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .pagination-link:hover {
+    color: var(--green-dark);
+  }
+
+  .pagination-link.disabled {
+    color: var(--grey-400);
+    pointer-events: none;
+  }
+
+  .pagination-current {
+    font-size: 13px;
+    color: var(--grey-400);
+    font-weight: 500;
+  }
+
+  @media (max-width: 640px) {
+    .blog-listing { padding: 110px 20px 60px; }
+    .blog-listing-header h1 { font-size: 28px; }
+  }
+</style>

@@ -1,0 +1,44 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  navVariant: 'homepage' | 'subpage';
+  footerVariant: 'homepage' | 'subpage';
+  ogType?: 'website' | 'article' | undefined;
+  ogImage?: string | undefined;
+  publishDate?: Date | undefined;
+}
+
+const {
+  title,
+  description,
+  navVariant,
+  footerVariant,
+  ogType,
+  ogImage,
+  publishDate,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <BaseHead
+    title={title}
+    description={description}
+    ogType={ogType}
+    ogImage={ogImage}
+    publishDate={publishDate}
+  />
+  <slot name="head" />
+</head>
+<body>
+  <Nav variant={navVariant} />
+  <slot />
+  <Footer variant={footerVariant} />
+</body>
+</html>

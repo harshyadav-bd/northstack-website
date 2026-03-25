@@ -1,0 +1,176 @@
+---
+interface Props {
+  variant: 'homepage' | 'subpage';
+}
+
+const { variant } = Astro.props;
+---
+
+{variant === 'homepage' ? (
+  <footer class="footer-homepage">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            NorthStack Labs
+          </a>
+          <p>
+            A small software studio in Ontario, Canada, run by Harsh Yadav.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#gopulse">GOPulse</a>
+          <a href="/support">GOPulse Support</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#about">About</a>
+          <a href="/blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 NorthStack Labs Inc. All rights reserved.</span>
+        <span>Made in Ontario, Canada &#127464;&#127462;</span>
+      </div>
+    </div>
+  </footer>
+) : (
+  <footer class="footer-subpage">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/support">GOPulse Support</a>
+    </div>
+    <p>&copy; 2026 NorthStack Labs Inc. All rights reserved.</p>
+  </footer>
+)}
+
+<style>
+  /* === HOMEPAGE FOOTER === */
+  .footer-homepage {
+    background: var(--grey-900);
+    color: var(--grey-400);
+    padding: 56px 24px 32px;
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-brand :global(.logo) {
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .footer-brand :global(.logo-mark) {
+    background: var(--green);
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--grey-400);
+    max-width: 300px;
+  }
+
+  .footer-col h4 {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 16px;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 14px;
+    color: var(--grey-400);
+    text-decoration: none;
+    padding: 4px 0;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    font-size: 13px;
+  }
+
+  .footer-bottom a {
+    color: var(--grey-400);
+    text-decoration: none;
+  }
+
+  .footer-bottom a:hover { color: var(--white); }
+
+  /* === SUBPAGE FOOTER === */
+  .footer-subpage {
+    border-top: 1px solid var(--grey-200);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--grey-400);
+  }
+
+  .footer-subpage a {
+    color: var(--grey-600);
+    text-decoration: none;
+  }
+
+  .footer-subpage a:hover { color: var(--grey-900); }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 12px;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+  }
+</style>

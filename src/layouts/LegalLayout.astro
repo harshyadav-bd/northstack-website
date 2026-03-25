@@ -1,0 +1,97 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  lastUpdated: string;
+}
+
+const { title, description, heading, lastUpdated } = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  navVariant="subpage"
+  footerVariant="subpage"
+>
+  <main class="legal-page">
+    <div class="legal-header">
+      <a href="/" class="back-link">&larr; Back to Home</a>
+      <h1 style="margin-top: 16px;">{heading}</h1>
+      <p class="legal-meta">Last updated: <span>{lastUpdated}</span> &middot; GOPulse by NorthStack Labs Inc.</p>
+    </div>
+    <slot />
+  </main>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 120px 24px 80px;
+  }
+
+  .legal-header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .legal-header h1 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+
+  .legal-meta {
+    font-size: 14px;
+    color: var(--grey-400);
+  }
+
+  .legal-meta span {
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  :global(.legal-section) {
+    margin-bottom: 36px;
+  }
+
+  :global(.legal-section h2) {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--grey-900);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  :global(.section-num) {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 1px;
+    min-width: 24px;
+  }
+
+  :global(.legal-section p) {
+    font-size: 15px;
+    color: var(--grey-600);
+    line-height: 1.8;
+    white-space: pre-line;
+  }
+
+  @media (max-width: 640px) {
+    .legal-page { padding: 110px 20px 60px; }
+    .legal-header h1 { font-size: 28px; }
+  }
+</style>

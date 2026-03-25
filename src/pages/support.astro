@@ -1,0 +1,462 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What does GOPulse include?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'GOPulse gives you everything you need for your GO Transit commute: a personalized home dashboard with your next departures, a real-time train map so you can see exactly where your train is, smart departure reminders that notify you before your train leaves, live service disruption alerts, and a journey planner for trips including transfers. You can also browse all GO Transit stations and their facilities.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is there a free trial?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Yes! New users get a 7-day free trial of GO Pulse+ with full access to all features. After the trial, you can upgrade to a paid subscription to keep using premium features, or continue on the free plan. You can manage your subscription anytime from More > Subscription in the app, or through your device's subscription settings.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I delete my account?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Tap More, then scroll to Danger Zone and tap Delete Account. This permanently removes all your data from our servers, including your profile, saved journeys, reminders, and notification preferences. This action cannot be undone. If you have an active subscription, remember to cancel it separately through your device's subscription settings to avoid continued billing.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I cancel my subscription?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "You can start from the app by going to More > Subscription > Manage Subscription, which will take you to your device's subscription settings. On iPhone: Settings > your name > Subscriptions > GOPulse > Cancel Subscription. On Android: Google Play Store > Menu > Subscriptions > GOPulse > Cancel. Cancellation takes effect at the end of your current billing period. For refund requests, please contact Apple or Google directly through their respective support channels.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Why is the train position not updating?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Real-time train positions come from the Metrolinx Open Data API. Occasionally, the data feed may be delayed or temporarily unavailable. If positions aren\'t updating, it\'s likely an issue with the upstream data source rather than the app. Try pulling to refresh, or check back in a few minutes. If the issue persists, let us know.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is GOPulse affiliated with GO Transit or Metrolinx?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. GOPulse is independently developed by NorthStack Labs Inc. We are not affiliated with, endorsed by, or sponsored by Metrolinx, GO Transit, or any government agency. We use publicly available data from the Metrolinx Open Data API to provide schedule and real-time information. Always verify critical travel plans with official GO Transit channels.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do departure reminders work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Save your regular journey (e.g., Oakville to Union Station), then set a reminder with your desired arrival time and which days you commute. GOPulse will send you a notification with enough time to get to the station before your train departs. You can customize the buffer time and manage all your reminders from the app.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does GOPulse work offline?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'GOPulse caches station data and schedules locally, so you can still view saved journeys and recent schedule information when you\'re offline. However, real-time features like live train tracking, service alerts, and up-to-the-minute departure times require an internet connection. The app will clearly indicate when data is stale.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What data do you collect?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "We collect only what's needed to run the app: your email for authentication, saved journeys and reminders, and anonymized crash data. We don't track you across apps, we don't show ads, and we don't sell your data. Location data is processed in real-time and never stored on our servers. Full details in our Privacy Policy.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'I found a bug. How do I report it?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We appreciate bug reports! You can use the feedback button in the app (More > About > Send Feedback), or email us directly at gopulse@northstacklabs.ca. If possible, include what you were doing when the issue occurred, your device model, and your OS version. Screenshots help too.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Support — GOPulse | NorthStack"
+  description="Get help with GOPulse, the GO Transit tracking app by NorthStack Labs Inc. FAQs, troubleshooting, and contact information."
+  navVariant="subpage"
+  footerVariant="subpage"
+>
+  <Fragment slot="head">
+    <JsonLd data={faqJsonLd} />
+  </Fragment>
+  <main class="support-page">
+    <div class="support-header">
+      <a href="/" class="back-link">&larr; Back to Home</a>
+      <h1 style="margin-top: 16px;">GOPulse Support</h1>
+      <p>Need help with something? We're a small team and we read every message. Here are answers to common questions, and if yours isn't here, just reach out.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div class="contact-card-text">
+        <h3>Email Us</h3>
+        <p>For bug reports, feature requests, account issues, or anything else:<br>
+        <a href="mailto:gopulse@northstacklabs.ca">gopulse@northstacklabs.ca</a>, we usually reply within a day.</p>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          What does GOPulse include?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>GOPulse gives you everything you need for your GO Transit commute: a personalized home dashboard with your next departures, a real-time train map so you can see exactly where your train is, smart departure reminders that notify you before your train leaves, live service disruption alerts, and a journey planner for trips including transfers. You can also browse all GO Transit stations and their facilities.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Is there a free trial?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! New users get a 7-day free trial of GO Pulse+ with full access to all features. After the trial, you can upgrade to a paid subscription to keep using premium features, or continue on the free plan. You can manage your subscription anytime from More &gt; Subscription in the app, or through your device's subscription settings.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How do I delete my account?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Tap More, then scroll to Danger Zone and tap Delete Account. This permanently removes all your data from our servers, including your profile, saved journeys, reminders, and notification preferences. This action cannot be undone. If you have an active subscription, remember to cancel it separately through your device's subscription settings to avoid continued billing.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How do I cancel my subscription?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>You can start from the app by going to More &gt; Subscription &gt; Manage Subscription, which will take you to your device's subscription settings.<br><br><strong>On iPhone:</strong> Settings &gt; your name &gt; Subscriptions &gt; GOPulse &gt; Cancel Subscription.<br><br><strong>On Android:</strong> Google Play Store &gt; Menu &gt; Subscriptions &gt; GOPulse &gt; Cancel.<br><br>Cancellation takes effect at the end of your current billing period. For refund requests, please contact Apple or Google directly through their respective support channels.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Why is the train position not updating?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Real-time train positions come from the Metrolinx Open Data API. Occasionally, the data feed may be delayed or temporarily unavailable. If positions aren't updating, it's likely an issue with the upstream data source rather than the app. Try pulling to refresh, or check back in a few minutes. If the issue persists, let us know.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Is GOPulse affiliated with GO Transit or Metrolinx?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>No. GOPulse is independently developed by NorthStack Labs Inc. We are not affiliated with, endorsed by, or sponsored by Metrolinx, GO Transit, or any government agency. We use publicly available data from the Metrolinx Open Data API to provide schedule and real-time information. Always verify critical travel plans with official GO Transit channels.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How do departure reminders work?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Save your regular journey (e.g., Oakville to Union Station), then set a reminder with your desired arrival time and which days you commute. GOPulse will send you a notification with enough time to get to the station before your train departs. You can customize the buffer time and manage all your reminders from the app.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Does GOPulse work offline?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>GOPulse caches station data and schedules locally, so you can still view saved journeys and recent schedule information when you're offline. However, real-time features like live train tracking, service alerts, and up-to-the-minute departure times require an internet connection. The app will clearly indicate when data is stale.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          What data do you collect?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We collect only what's needed to run the app: your email for authentication, saved journeys and reminders, and anonymized crash data. We don't track you across apps, we don't show ads, and we don't sell your data. Location data is processed in real-time and never stored on our servers. Full details in our <a href="/privacy" style="color: var(--green); font-weight: 500;">Privacy Policy</a>.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          I found a bug. How do I report it?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We appreciate bug reports! You can use the feedback button in the app (More &gt; About &gt; Send Feedback), or email us directly at <a href="mailto:gopulse@northstacklabs.ca" style="color: var(--green); font-weight: 500;">gopulse@northstacklabs.ca</a>. If possible, include what you were doing when the issue occurred, your device model, and your OS version. Screenshots help too.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- App info -->
+    <div class="app-info">
+      <h3>App Information</h3>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="label">Developer</div>
+          <div class="value">NorthStack Labs Inc.</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Location</div>
+          <div class="value">Ontario, Canada</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Platforms</div>
+          <div class="value">iOS &amp; Android</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Support Email</div>
+          <div class="value"><a href="mailto:gopulse@northstacklabs.ca" style="color: var(--green); text-decoration: none;">gopulse@northstacklabs.ca</a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  /* Support page */
+  .support-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 120px 24px 80px;
+  }
+
+  .support-header {
+    margin-bottom: 48px;
+  }
+
+  .support-header h1 {
+    font-size: 36px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--black);
+    margin-bottom: 12px;
+  }
+
+  .support-header p {
+    font-size: 17px;
+    color: var(--grey-600);
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  .back-link {
+    font-size: 14px;
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .back-link:hover { text-decoration: underline; }
+
+  /* Contact card */
+  .contact-card {
+    background: var(--green-50);
+    border: 1px solid var(--green-100);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .contact-card-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--green);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-card-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .contact-card-text h3 {
+    font-size: 17px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .contact-card-text p {
+    font-size: 14px;
+    color: var(--grey-600);
+    line-height: 1.6;
+  }
+
+  .contact-card-text a {
+    color: var(--green);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .contact-card-text a:hover { text-decoration: underline; }
+
+  /* FAQ */
+  .faq-section {
+    margin-bottom: 48px;
+  }
+
+  .faq-section h2 {
+    font-size: 24px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+    color: var(--black);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--grey-200);
+    padding: 20px 0;
+  }
+
+  .faq-item:first-of-type {
+    border-top: 1px solid var(--grey-200);
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--grey-900);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 0;
+  }
+
+  .faq-question:hover { color: var(--green); }
+
+  .faq-chevron {
+    width: 20px;
+    height: 20px;
+    stroke: var(--grey-400);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .faq-item.open .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 500px;
+    padding-top: 14px;
+  }
+
+  .faq-answer p {
+    font-size: 15px;
+    color: var(--grey-600);
+    line-height: 1.8;
+  }
+
+  /* App info */
+  .app-info {
+    background: var(--grey-100);
+    border-radius: var(--radius);
+    padding: 32px;
+  }
+
+  .app-info h3 {
+    font-size: 17px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .info-item {
+    font-size: 14px;
+  }
+
+  .info-item .label {
+    color: var(--grey-400);
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .info-item .value {
+    color: var(--grey-800);
+    font-weight: 500;
+  }
+
+  @media (max-width: 640px) {
+    .support-page { padding: 110px 20px 60px; }
+    .support-header h1 { font-size: 28px; }
+    .contact-card { flex-direction: column; text-align: center; }
+    .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
