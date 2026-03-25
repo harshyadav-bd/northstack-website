@@ -195,7 +195,35 @@ const formattedDate = pubDate.toLocaleDateString('en-CA', {
     max-width: 100%;
     height: auto;
     border-radius: var(--radius-sm);
-    margin: 24px 0;
+    margin: 24px auto;
+    display: block;
+  }
+
+  .prose :global(.app-icon-block) {
+    text-align: center;
+    margin: 32px 0;
+  }
+
+  .prose :global(.app-icon-block img) {
+    width: 100px;
+    border-radius: 22px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin: 0 auto;
+  }
+
+  .prose :global(.screenshot-pair) {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 32px 0;
+  }
+
+  .prose :global(.screenshot-pair img) {
+    max-width: 260px;
+    width: 100%;
+    margin: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   }
 
   .prose :global(hr) {
@@ -207,5 +235,9 @@ const formattedDate = pubDate.toLocaleDateString('en-CA', {
   @media (max-width: 640px) {
     .blog-post { padding: 110px 20px 60px; }
     .blog-header h1 { font-size: 28px; }
+    .prose :global(.screenshot-pair) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>

@@ -9,7 +9,12 @@ date: "2026-03-25"
 ---
 
 GOPulse is a GO Transit app I built because the daily commute deserved better tools. Here's the story of why it exists and what it does differently.
- 
+
+<div class="screenshot-pair">
+  <img src="/images/IMG_2355.PNG" alt="GOPulse dashboard showing departures from Whitby GO with service alerts" />
+  <img src="/images/IMG_2356.PNG" alt="GOPulse live map showing nearby Whitby GO station and train on the Lakeshore East line" />
+</div>
+
 ## The Everyday GO Problem
  
 If you ride GO Transit, you already know the feeling.
@@ -44,13 +49,23 @@ GOPulse is built for people who ride GO regularly. Everything about it is design
 **Smart Dashboard.** Save your regular routes and GOPulse handles the rest. It knows your closest station based on where you are and automatically shows departures in the correct direction, so whether you're heading to work or heading home, the right trains are already on screen. You'll also see platform assignments and delay information right on the dashboard, no extra taps required.
  
 **Live Train Tracking.** Not a countdown. Not an estimate. The actual train, moving on a map in real time across all GO lines. When your train is delayed, you can see exactly where it is and how far out it actually is.
- 
+
+<div class="screenshot-pair">
+  <img src="/images/IMG_2393.png" alt="GOPulse dashboard showing upcoming departures from Whitby GO station" />
+  <img src="/images/IMG_2394.png" alt="Live train tracking map showing trains on the Lakeshore East line" />
+</div>
+
 **Smart Reminders.** Pick your arrival time, pick which days, add a buffer for getting to the station. GOPulse sends you a notification when it's time to head out. No more mental math about when to leave the office.
  
 **Real-Time Alerts.** Disruptions, delays, and modified trips show up right on your home screen. You find out about problems before you get to the station, not after.
  
 **Trip Planner.** Going somewhere you don't usually go? Search any route and get schedules, options, and PRESTO fares all in one place.
- 
+
+<div class="screenshot-pair">
+  <img src="/images/IMG_2397.png" alt="GOPulse smart reminder notification on iPhone lock screen" />
+  <img src="/images/IMG_2396.png" alt="GOPulse trip planner showing journeys from Oakville to Union Station with PRESTO fares" />
+</div>
+
 **Station Details.** Parking availability, facilities, accessibility info, and platform details for every GO station in the network.
  
 None of these features are revolutionary on their own. But together, wrapped in an interface that respects your time and doesn't make you dig through menus, they add up to something that actually changes your daily commute.
