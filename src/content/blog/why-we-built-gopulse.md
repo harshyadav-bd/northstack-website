@@ -123,5 +123,5 @@ And if you're curious about what else NorthStack Labs is working on, or if you'v
 For now: better GO Transit tools are coming. Built in Ontario, by someone who actually rides GO.
  
 ---
- 
+
 *Harsh Yadav is the founder of [NorthStack Labs](https://www.northstacklabs.ca), a software studio in Ontario, Canada. GOPulse is his first product, a GO Transit app built for daily train riders.*
